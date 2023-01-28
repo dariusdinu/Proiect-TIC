@@ -4,31 +4,35 @@
       <h1>Login</h1>
       <div class="field email-field">
         <p v-if="emailError" class="error">{{ emailError }}</p>
-        <input
-          type="email"
-          id="email"
-          v-model.trim="email"
-          placeholder="Email address"
-          class="input input-email"
-        />
-        <div>
-          <i class="fa-solid fa-user red"></i>
-          <i class="fa-solid fa-lock red"></i>
+        <div class="input-content">
+          <input
+            type="email"
+            id="email"
+            v-model.trim="email"
+            placeholder="Email address"
+            class="input-field input-email"
+          />
+          <i class="fa-solid fa-user icon"></i>
         </div>
       </div>
+
       <div class="field password-field">
         <p v-if="passwordError" class="error">{{ passwordError }}</p>
-        <input
-          type="password"
-          id="password"
-          v-model.trim="password"
-          placeholder="Password"
-          class="input input-password"
-        />
+        <div class="input-content">
+          <input
+            type="password"
+            id="password"
+            v-model.trim="password"
+            placeholder="Password"
+            class="input-field input-password"
+          />
+          <i class="fa-solid fa-lock icon"></i>
+        </div>
       </div>
+      <!-- <p class="error-login error">loginError</p> -->
+      <p v-if="loginError" class="error-login error">{{ loginError }}</p>
 
       <button type="submit" class="btn-submit">Login</button>
-      <span v-if="loginError" class="error">{{ loginError }}</span>
     </form>
   </div>
 </template>
@@ -167,6 +171,15 @@ export default {
   }
 }
 
+@keyframes error-login {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 * {
   margin: 0;
   --main-light: #f1f1f1;
@@ -206,8 +219,8 @@ h1 {
 
 .field {
   width: 60%;
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
   margin-left: auto;
   margin-right: auto;
   backface-visibility: hidden;
@@ -222,7 +235,15 @@ h1 {
   animation: error-input 0.3s ease-in;
 }
 
-.input {
+.error-login {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 10%);
+  font-size: 0.8rem;
+  animation: error-login 0.3s ease-in;
+}
+
+.input-field {
   border: none;
   width: 100%;
   margin-left: auto;
@@ -243,18 +264,39 @@ h1 {
   animation-timing-function: ease-in;
 }
 
-.input::placeholder {
+.input-field::placeholder {
   color: var(--dark-accent);
   font-weight: 500;
 }
 
-.input:hover {
+.input-field:hover,
+.input-field:focus {
   background-color: var(--highlight);
 }
 
-.input:focus {
+.input-field:focus {
   outline: 0.2rem solid var(--dark-accent);
   outline-offset: -4px;
+}
+.input-field:-webkit-autofill,
+.input-field:-webkit-autofill:hover,
+.input-field:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--dark-accent);
+  background-color: var(--main-light) !important;
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+  color: var(--small-text);
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+}
+
+.input-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-submit {
@@ -271,7 +313,7 @@ h1 {
   background-color: var(--main-light);
   border: 4px solid var(--main-light);
   box-shadow: -5px -5px 15px var(--highlight), 5px 5px 5px var(--shadow);
-  transition: 0.1s ease-in-out;
+  transition: 0.3s ease-in-out;
   animation-name: rise-button;
   animation-duration: 1.5s;
   animation-timing-function: ease-in;
@@ -284,9 +326,5 @@ h1 {
 }
 .error {
   color: rgb(255, 108, 108);
-}
-
-.red {
-  color: red;
 }
 </style>

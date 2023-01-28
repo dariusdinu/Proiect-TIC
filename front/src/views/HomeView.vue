@@ -1,39 +1,71 @@
 <template>
   <main>
+    <p v-if="error !== null">{{ error }}</p>
     <h1>Welcome to your garden</h1>
-    <ul>
-      <li v-for="plant in plants" :key="plant.id" class="plant-card">
-        <button class="plant-name">
-          <router-link :to="'/plants/' + plant.id" class="router-link">
-            {{ plant.name }}
-          </router-link>
-        </button>
-        <span :to="'/plants/' + plant.id" class="plant-species"
-          >{{ plant.species }}
-        </span>
-      </li>
-    </ul>
+    <div>
+      <div>
+        <router-link to="/add-plant">
+          <button>Add plant</button>
+        </router-link>
+      </div>
+      <ul>
+        <li v-for="plant in plants" :key="plant.id" class="plant-card">
+          <div v-if="isAdmin">
+            <button @click="handleDelete(plant.id)">Delete</button>
+          </div>
+          <button class="plant-name">
+            <router-link :to="'/plants/' + plant.id" class="router-link">
+              {{ plant.name }}
+            </router-link>
+          </button>
+          <span :to="'/plants/' + plant.id" class="plant-species"
+            >{{ plant.species }}
+          </span>
+        </li>
+      </ul>
+    </div>
   </main>
 </template>
 
 <script>
 export default {
   name: "HomeView",
+  data() {
+    return {
+      error: null,
+    };
+  },
   created() {
+    this.error = null;
     this.loadPlants();
   },
   computed: {
     plants() {
       return this.$store.getters.getPlants;
     },
+    isAdmin() {
+      return (
+        this.$store.getters.isAdmin ||
+        localStorage.getItem("email") === "darius@email.com"
+      );
+    },
   },
   methods: {
     async loadPlants() {
       await this.$store.dispatch("loadPlants");
     },
+    async handleDelete(plantId) {
+      this.error = null;
+      try {
+        await this.$store.dispatch("deletePlant", plantId);
+      } catch (error) {
+        this.error = error.message;
+      }
+    },
   },
 };
 </script>
+
 <style scoped>
 @keyframes rise {
   0% {

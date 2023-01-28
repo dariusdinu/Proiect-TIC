@@ -1,20 +1,27 @@
 <template>
   <div>
-    <h1>Plant Detail</h1>
     <div>
-      <h2>{{ name }}</h2>
-      <p>{{ species }}</p>
-      <p>{{ room }}</p>
-      <p>{{ sunExposure }}</p>
-      <p>{{ soilType }}</p>
-      <p>{{ toxicityLevel }}</p>
-      <p>{{ color }}</p>
-      <p>{{ maxHeight }}</p>
+      <h1>Plant Detail</h1>
+      <div>
+        <h2>{{ name }}</h2>
+        <p>{{ species }}</p>
+        <p>{{ room }}</p>
+        <p>{{ sunExposure }}</p>
+        <p>{{ soilType }}</p>
+        <p>{{ toxicityLevel }}</p>
+        <p>{{ color }}</p>
+        <p>{{ maxHeight }}</p>
+      </div>
+    </div>
+    <div>
+      <button @click="handleEdit">Edit</button>
     </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "PlantDetail",
   props: {
@@ -59,7 +66,13 @@ export default {
   },
   methods: {
     async getPlant() {
-      this.plant = await this.$store.dispatch("loadPlant", this.id);
+      const plant = await axios.get(
+        `${process.env.VUE_APP_API_URL}/plants/${this.id}`
+      );
+      this.plant = plant?.data || {};
+    },
+    handleEdit() {
+      this.$router.push("/plants/" + this.id + "/edit");
     },
   },
 };

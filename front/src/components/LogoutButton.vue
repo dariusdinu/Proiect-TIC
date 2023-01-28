@@ -4,10 +4,11 @@
 
 <script>
 export default {
+  name: "LogoutButton",
+  emits: ["logout"],
   methods: {
     logout() {
-      this.$store.dispatch("logout");
-      this.$router.replace("/login");
+      this.$emit("logout");
     },
   },
 };
