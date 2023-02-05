@@ -36,13 +36,13 @@
               </span>
             </div>
             <div v-if="isAdmin" class="buttons-container">
-              <!-- <button class="btn btn-reminders" @click="handleReminders">
-                Reminders
-              </button> -->
               <button @click="handleDelete(plant.id)" class="btn-delete-plant">
                 <i class="fa-solid fa-trash"></i>
               </button>
-              <router-link :to="'/plants/' + plant.id + '/reminders'">
+              <router-link
+                :to="'/plants/' + plant.id + '/reminders'"
+                class="btn btn-reminders"
+              >
                 Reminders</router-link
               >
             </div>
@@ -274,11 +274,11 @@ export default {
 .btn-reminders {
   border-radius: 1.5rem;
   font-size: 1.5rem;
-  padding: 0.5rem 2rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
   outline: none;
   cursor: pointer;
+  text-align: center;
   border: none;
   width: 100%;
   font-weight: 700;

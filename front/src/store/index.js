@@ -33,6 +33,9 @@ export default createStore({
     getReminders(state) {
       return state.reminders;
     },
+    // getRemindersByPlant(state, id) {
+    //   return state.reminders.filter((reminder) => reminder.id === id);
+    // },
   },
   mutations: {
     setUser(state, payload) {
@@ -91,7 +94,21 @@ export default createStore({
       const plants = await axios.get(`${process.env.VUE_APP_API_URL}/plants`);
       commit("setPlants", plants?.data || []);
     },
-    async loadReminders({ commit }, id) {
+    async deleteReminder({ commit }, { id, reminderId }) {
+      await axios.delete(
+        `${process.env.VUE_APP_API_URL}/admin/plants/${id}/reminders/${reminderId}`,
+        {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      const reminders = await axios.get(
+        `${process.env.VUE_APP_API_URL}/plants/${id}/reminders`
+      );
+      commit("setReminders", reminders?.data || []);
+    },
+    async loadReminders({ commit }, { id }) {
       const reminders = await axios.get(
         `${process.env.VUE_APP_API_URL}/plants/${id}/reminders`
       );

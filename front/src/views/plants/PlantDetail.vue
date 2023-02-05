@@ -42,7 +42,10 @@
             </div>
           </div>
           <div>
-            <button @click="handleEdit" class="btn btn-edit">Edit</button>
+            <button @click="handleEdit" class="btn btn-edit">
+              <i class="fa-solid fa-pen-to-square"></i>
+              Edit
+            </button>
           </div>
         </div>
       </div>
@@ -150,7 +153,7 @@ export default {
   font-size: 4rem;
   font-weight: 800;
   width: 50%;
-  animation: show 0.3s ease-in;
+  animation: show 1s ease-in;
   text-align: center;
 }
 .plant-name {
@@ -159,18 +162,17 @@ export default {
   padding: 2rem 0;
   border-radius: 1.5rem;
   text-decoration: none;
-  animation: show 0.5s ease-in;
+  animation: show 1s ease-in;
   color: var(--main-light);
   font-weight: 600;
   font-size: 2rem;
   margin: 1.8rem;
   margin-bottom: 3.2rem;
-  animation: show 0.5s ease-in;
   transition: all 0.3s;
 }
 
 .btn-edit {
-  border-radius: 1.5rem;
+  border-radius: 3rem;
   font-size: 2rem;
   padding: 1.7rem 1.5rem;
   margin-top: 1rem;
@@ -188,6 +190,13 @@ export default {
   animation-name: rise-button;
   animation-duration: 1.5s;
   animation-timing-function: ease-in;
+}
+
+.btn-edit:hover {
+  box-shadow: -1px -1px 5px rgba(255, 255, 255, 0.6),
+    1px 1px 5px rgba(0, 0, 0, 0.3), inset -1px -1px 5px rgba(255, 255, 255, 0.6),
+    inset 1px 1px 4px rgba(0, 0, 0, 0.3);
+  color: var(--dark-accent-hover);
 }
 
 .plant-field {

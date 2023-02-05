@@ -358,7 +358,7 @@ h1 {
 .btn-add-new-plant {
   border-radius: 1.5rem;
   font-size: 2.3rem;
-  padding: 0.2rem 2rem;
+  padding: 0.2rem 5rem;
   margin-left: 2rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
