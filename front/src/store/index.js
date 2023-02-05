@@ -8,6 +8,7 @@ export default createStore({
     email: null,
     token: null,
     userId: null,
+    reminders: [],
     plants: [],
   },
   getters: {
@@ -29,6 +30,9 @@ export default createStore({
     isAdmin(state) {
       return state.email === "darius@email.com";
     },
+    getReminders(state) {
+      return state.reminders;
+    },
   },
   mutations: {
     setUser(state, payload) {
@@ -38,6 +42,9 @@ export default createStore({
     },
     setPlants(state, payload) {
       state.plants = payload;
+    },
+    setReminders(state, payload) {
+      state.reminders = payload;
     },
   },
   actions: {
@@ -83,6 +90,12 @@ export default createStore({
       });
       const plants = await axios.get(`${process.env.VUE_APP_API_URL}/plants`);
       commit("setPlants", plants?.data || []);
+    },
+    async loadReminders({ commit }, id) {
+      const reminders = await axios.get(
+        `${process.env.VUE_APP_API_URL}/plants/${id}/reminders`
+      );
+      commit("setReminders", reminders?.data || []);
     },
   },
   modules: {},

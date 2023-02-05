@@ -23,11 +23,6 @@ const routes = [
     props: true,
   },
   {
-    path: "/about",
-    name: "about",
-    component: () => import("../views/AboutView.vue"),
-  },
-  {
     path: "/login",
     name: "login",
     component: LoginView,
@@ -36,6 +31,12 @@ const routes = [
     path: "/add-plant",
     name: "add-plant",
     component: () => import("../views/plants/AddPlantView.vue"),
+  },
+  {
+    path: "/plants/:id/reminders",
+    name: "plant-reminders",
+    component: () => import("../views/reminders/RemindersView.vue"),
+    props: true,
   },
 ];
 

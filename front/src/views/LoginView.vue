@@ -15,7 +15,6 @@
           <i class="fa-solid fa-user icon"></i>
         </div>
       </div>
-
       <div class="field password-field">
         <p v-if="passwordError" class="error">{{ passwordError }}</p>
         <div class="input-content">
@@ -180,17 +179,6 @@ export default {
   }
 }
 
-* {
-  margin: 0;
-  --main-light: #f1f1f1;
-  --highlight: rgb(255, 255, 255);
-  --shadow: rgba(200, 200, 200, 0.7);
-  --main-accent: #69dfa6;
-  --dark-accent: #51ab7f;
-  --small-text: #224936;
-  font-family: Quicksand, sans-serif;
-}
-
 h1 {
   color: var(--dark-accent);
   font-weight: 600;
@@ -202,8 +190,7 @@ h1 {
 }
 
 .login-form {
-  width: 70%;
-  margin-top: 10rem;
+  margin-top: 10vh;
   border-radius: 1.5rem;
   padding: 1rem;
   margin-left: auto;
@@ -212,13 +199,12 @@ h1 {
   flex-direction: column;
   font-weight: bold;
   text-align: center;
-  background-color: var(--main-light);
   box-shadow: -8px -8px 25px var(--highlight), 5px 5px 20px var(--shadow);
   animation: rise 0.5s ease-in;
 }
 
 .field {
-  width: 60%;
+  /* width: 60%; */
   display: flex;
   flex-direction: column;
   margin-left: auto;
@@ -325,6 +311,6 @@ h1 {
     inset 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 .error {
-  color: rgb(255, 108, 108);
+  color: var(--error-text);
 }
 </style>

@@ -2,11 +2,13 @@
   <div>
     <nav>
       <button><router-link to="/">Home</router-link></button>
-      <button><router-link to="/about">About</router-link></button>
       <button v-if="isAuthenticated">
         <logout-button @logout="logout"></logout-button>
       </button>
-      <button v-else><router-link to="/login">Login</router-link></button>
+      <button v-else class="btn btn-login">
+        <router-link to="/login">Login</router-link>
+      </button>
+      <button class="btn btn-reminders"></button>
     </nav>
   </div>
 </template>
@@ -42,19 +44,47 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 nav {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  padding: 0.5rem;
+  background-color: #51ab7f;
+  font-family: Quicksand, sans-serif;
+  text-decoration: none;
 }
 
-button {
-  border-radius: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: none;
-  background-color: transparent;
+/* nav a { */
+/* background-color: red;
+  font-family: Quicksand;
+  text-decoration: none;
+  font-weight: 700;
+  margin: 1rem 1.2rem;
 }
+
+nav a.router-link-exact-active {
+  color: #51ab7f;
+  padding: 10px;
+  border-radius: 100px;
+  background-color: white;
+} */
+
+.btn {
+  border: none;
+}
+
+.btn-login,
+.btn-logout {
+  background-color: red;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* nav a.router-link-exact-active {
+  color: #51ab7f;
+  padding: 10px;
+  border-radius: 100px;
+  background-color: white;
+} */
 </style>

@@ -16,6 +16,59 @@ export default {};
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  --main-light: #f1f1f1;
+  --highlight: rgb(255, 255, 255);
+  --shadow: rgba(200, 200, 200, 0.7);
+  --main-accent: #69dfa6;
+  --dark-accent: #51ab7f;
+  --dark-accent-hover: #399b6c;
+  --small-text: #224936;
+  font-family: Quicksand, sans-serif;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+  .login-form {
+    width: 80%;
+    background-color: yellow;
+  }
+  .field {
+    width: 70%;
+  }
+}
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+  .login-form {
+    width: 50%;
+    background-color: purple;
+  }
+  .field {
+    width: 70%;
+  }
+}
+@media (min-width: 75em) {
+  html {
+    font-size: 75%;
+  }
+  .login-form {
+    width: 50rem;
+    background-color: red;
+  }
+  .field {
+    width: 70%;
+  }
 }
 
 body {
@@ -27,36 +80,5 @@ body {
   background-color: #f1f1f1;
   align-items: center;
   justify-content: center;
-}
-
-/* #app {
-  font-family: Lato, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  box-sizing: border-box;
-} */
-
-nav {
-  background-color: #51ab7f;
-  font-family: Quicksand, sans-serif;
-  text-decoration: none;
-}
-
-nav a {
-  /* font-weight: bold;
-  color: white;
-  text-decoration: none; */
-  background-color: red;
-  font-family: Quicksand;
-  text-decoration: none;
-  font-weight: 700;
-  margin: 1rem 1.2rem;
-}
-
-nav a.router-link-exact-active {
-  color: #51ab7f;
-  padding: 10px;
-  border-radius: 100px;
-  background-color: white;
 }
 </style>
