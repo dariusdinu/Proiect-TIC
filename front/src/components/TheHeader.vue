@@ -8,7 +8,9 @@
       <button v-else class="btn btn-login">
         <router-link to="/login">Login</router-link>
       </button>
-      <button class="btn btn-reminders"></button>
+      <button class="btn btn-reminders">
+        <router-link to="/reminders">Reminders</router-link>
+      </button>
     </nav>
   </div>
 </template>

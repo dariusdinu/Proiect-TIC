@@ -216,6 +216,5 @@ export default {
 
 .plant-info-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
 }
 </style>

@@ -130,7 +130,6 @@ export default {
 
 .plants {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   margin: 1.5rem;
 }
 

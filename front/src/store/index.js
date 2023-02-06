@@ -114,6 +114,12 @@ export default createStore({
       );
       commit("setReminders", reminders?.data || []);
     },
+    async loadAllReminders({ commit }) {
+      const reminders = await axios.get(
+        `${process.env.VUE_APP_API_URL}/reminders`
+      );
+      commit("setReminders", reminders?.data || []);
+    },
   },
   modules: {},
 });

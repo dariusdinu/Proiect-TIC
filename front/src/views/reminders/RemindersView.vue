@@ -97,6 +97,78 @@ export default {
 </script>
 
 <style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  --main-light: #f1f1f1;
+  --highlight: rgb(255, 255, 255);
+  --shadow: rgba(200, 200, 200, 0.7);
+  --main-accent: #69dfa6;
+  --dark-accent: #51ab7f;
+  --dark-accent-hover: #399b6c;
+  --small-text: #224936;
+  --error-text: rgb(245, 81, 81);
+  font-family: Quicksand, sans-serif;
+}
+@keyframes rise {
+  0% {
+    box-shadow: none;
+  }
+
+  100% {
+    box-shadow: -8px -8px 25px var(--highlight), 5px 5px 20px var(--shadow);
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes rise-button {
+  0% {
+    opacity: 0;
+    box-shadow: none;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    box-shadow: -5px -5px 15px var(--highlight), 5px 5px 5px var(--shadow);
+  }
+}
+
+@keyframes sunk-input {
+  0% {
+    opacity: 0;
+    box-shadow: none;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    box-shadow: inset -2px -2px 5px var(--highlight),
+      inset 2px 2px 4px var(--shadow);
+  }
+}
+
+@keyframes error-input {
+  0% {
+    opacity: 0;
+    /* transform: translateY(-1.1rem); */
+  }
+  100% {
+    opacity: 1;
+    /* transform: translateY(-1.8rem); */
+  }
+}
 .header {
   display: flex;
   align-items: center;
@@ -113,7 +185,6 @@ export default {
 
 .reminders-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   row-gap: 2.5rem;
   column-gap: 2.5rem;
   margin: 2rem 2rem;

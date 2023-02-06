@@ -23,6 +23,7 @@ export default {};
   --dark-accent: #51ab7f;
   --dark-accent-hover: #399b6c;
   --small-text: #224936;
+  --error-text: rgb(245, 81, 81);
   font-family: Quicksand, sans-serif;
 }
 
@@ -34,40 +35,69 @@ html {
   scroll-behavior: smooth;
 }
 
-@media (max-width: 56.25em) {
+/* Tablet */
+@media only screen and (max-width: 1000px) {
+  html {
+    font-size: 62.5%;
+  }
+  .login-form {
+    width: 70%;
+  }
+  .field {
+    width: 70%;
+  }
+  .plants {
+    grid-template-columns: 1fr 1fr;
+  }
+  .reminders-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .plant-info-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Mobile */
+@media only screen and (max-width: 600px) {
   html {
     font-size: 50%;
   }
   .login-form {
     width: 80%;
-    background-color: yellow;
   }
   .field {
     width: 70%;
   }
-}
-@media (max-width: 75em) {
-  html {
-    font-size: 56.25%;
+  .plants {
+    grid-template-columns: 1fr;
   }
-  .login-form {
-    width: 50%;
-    background-color: purple;
+  .reminders-container {
+    grid-template-columns: 1fr;
   }
-  .field {
-    width: 70%;
+  .plant-info-container {
+    grid-template-columns: 1fr 1fr;
   }
 }
-@media (min-width: 75em) {
+
+/* Desktop */
+@media (min-width: 1000px) {
   html {
-    font-size: 75%;
+    font-size: 80%;
   }
   .login-form {
     width: 50rem;
-    background-color: red;
   }
   .field {
     width: 70%;
+  }
+  .plants {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .reminders-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .plant-info-container {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 

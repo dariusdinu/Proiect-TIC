@@ -204,7 +204,6 @@ h1 {
 }
 
 .field {
-  /* width: 60%; */
   display: flex;
   flex-direction: column;
   margin-left: auto;
