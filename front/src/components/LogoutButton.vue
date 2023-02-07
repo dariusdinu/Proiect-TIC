@@ -1,5 +1,5 @@
 <template>
-  <button @click="logout" class="btn btn-logout">Logout</button>
+  <button @click="logout" class="btn btn-logout btn-login">Logout</button>
 </template>
 
 <script>
@@ -13,3 +13,9 @@ export default {
   },
 };
 </script>
+
+<style>
+/* .btn-logout {
+  border: none;
+} */
+</style>

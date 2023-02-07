@@ -210,6 +210,11 @@ export default {
   text-align: center;
 }
 
+.filter-form {
+  display: grid;
+  width: 100vw;
+}
+
 .reminders-container {
   display: grid;
   row-gap: 2.5rem;
@@ -226,7 +231,6 @@ export default {
 
 .container-main-info {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .reminder-info-card {
@@ -268,6 +272,7 @@ export default {
   border: none;
   font-size: 2rem;
   padding: 0.8rem;
+  width: 100%;
   padding-left: 1.3rem;
   border-radius: 1.5rem;
   color: var(--dark-accent);

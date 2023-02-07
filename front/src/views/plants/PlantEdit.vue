@@ -2,7 +2,7 @@
   <div>
     <h1>Edit Plant</h1>
     <form @submit.prevent="submitForm" class="form">
-      <div class="plant-info-container">
+      <div class="plant-info-container-edit">
         <input
           class="input"
           type="text"
@@ -288,9 +288,8 @@ h1 {
   animation: rise 0.5s ease-in;
 }
 
-.plant-info-container {
+.plant-info-container-edit {
   display: grid;
-  grid-template-columns: 1fr 1fr;
 }
 
 .input {
@@ -379,6 +378,15 @@ h1 {
 .select-toxicity:focus {
   outline: 0.2rem solid var(--dark-accent);
   outline-offset: -4px;
+}
+
+.select-toxicity {
+  background-color: var(--main-light);
+}
+
+.select-toxicity > option:hover {
+  background-color: var(--dark-accent);
+  color: var(--main-light);
 }
 
 .div-for-select {
